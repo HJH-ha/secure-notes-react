@@ -2,16 +2,17 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import { useMyContext } from "../store/ContextApi";
 
+// props로 관리자 페이지(adminPage)
 const ProtectedRoute = ({ children, adminPage }) => {
-  // Access the token and isAdmin state by using the useMyContext hook from the ContextProvider
+  // useMyContext()를 사용하여 토큰과 어드민상태 확인(true, false) 가져옴
   const { token, isAdmin } = useMyContext();
 
-  //navigate to login page to an unauthenticated
+  // 토큰이 없으면 로그인 페이지로(인증안된 유저)
   if (!token) {
     return <Navigate to="/login" />;
   }
 
-  //navigate to access-denied page if a user try to access the admin page
+  // 토큰이 있고 관리자페이지 이면서 관리자가 아니면 /access-denied(접속거부페이지)로 보냄
   if (token && adminPage && !isAdmin) {
     return <Navigate to="/access-denied" />;
   }
@@ -20,31 +21,3 @@ const ProtectedRoute = ({ children, adminPage }) => {
 };
 
 export default ProtectedRoute;
-
-
-// USING LOCAL STORAGE OPTION FOR OAUTH ISSUE SINCE IT WAS NOT GETTING REDIRECTED.
-// import React from "react";
-// import { Navigate } from "react-router-dom";
-
-// const ProtectedRoute = ({ children, adminPage = false }) => {
-//   const token = localStorage.getItem('JWT_TOKEN');
-//   const user = JSON.parse(localStorage.getItem('USER'));
-
-//   console.log("ProtectedRoute: Token:", token);
-//   console.log("ProtectedRoute: User:", user);
-
-//   if (!token) {
-//     console.log("ProtectedRoute: No token found, redirecting to login");
-//     return <Navigate to="/login" />;
-//   }
-
-//   if (adminPage && (!user || !user.roles.includes('ADMIN'))) {
-//     console.log("ProtectedRoute: User does not have admin rights, redirecting to access denied");
-//     return <Navigate to="/access-denied" />;
-//   }
-
-//   console.log("ProtectedRoute: Access granted to protected route");
-//   return children;
-// };
-
-// export default ProtectedRoute;
