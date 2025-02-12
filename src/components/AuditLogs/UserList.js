@@ -22,7 +22,7 @@ export const userListsColumns = [
     editable: false,
     headerClassName: "text-black font-semibold border",
     cellClassName: "text-slate-700 font-normal  border",
-    renderHeader: (params) => <span className="text-center">UserName</span>,
+    renderHeader: (params) => <span className="text-center">유저네임</span>,
   },
 
   {
@@ -36,7 +36,7 @@ export const userListsColumns = [
     cellClassName: "text-slate-700 font-normal  border  text-center ",
     align: "center",
     disableColumnMenu: true,
-    renderHeader: (params) => <span>Email</span>,
+    renderHeader: (params) => <span>이메일</span>,
     renderCell: (params) => {
       return (
         <div className=" flex  items-center justify-center  gap-1 ">
@@ -58,7 +58,7 @@ export const userListsColumns = [
     cellClassName: "text-slate-700 font-normal  border  ",
     align: "center",
     disableColumnMenu: true,
-    renderHeader: (params) => <span>Created At</span>,
+    renderHeader: (params) => <span>가입일자</span>,
     renderCell: (params) => {
       return (
         <div className=" flex justify-center  items-center  gap-1 ">
@@ -80,7 +80,7 @@ export const userListsColumns = [
     disableColumnMenu: true,
     headerClassName: "text-black font-semibold border ",
     cellClassName: "text-slate-700 font-normal  border  ",
-    renderHeader: (params) => <span className="ps-10">Status</span>,
+    renderHeader: (params) => <span className="">상태</span>, // ps-10 생략
   },
   {
     field: "action",
@@ -91,7 +91,7 @@ export const userListsColumns = [
     cellClassName: "text-slate-700 font-normal",
     sortable: false,
     width: 200,
-    renderHeader: (params) => <span>Action</span>,
+    renderHeader: (params) => <span>액션</span>,
     renderCell: (params) => {
       return (
         <Link
