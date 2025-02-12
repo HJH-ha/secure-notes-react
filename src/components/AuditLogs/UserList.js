@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 import { MdOutlineEmail } from "react-icons/md";
 import { MdDateRange } from "react-icons/md";
 
-//Material ui data grid has used for the table
-//initialize the columns for the tables and (field) value is used to show data in a specific column dynamically
+// 테이블 표시할때 DataGrid 를 사용하여 userListColumns 은 제목열을 표시
+// rows는 데이터를 표시함.
 export const userListsColumns = [
   {
     field: "username",
@@ -136,8 +136,6 @@ const UserList = () => {
       "MMMM DD, YYYY, hh:mm A"
     );
 
-    //set the data for each rows in the table according to the field name in columns
-    //Example: username is the keyword in row it should matche with the field name in column so that the data will show on that column dynamically
     return {
       id: item.userId,
       username: item.userName,
