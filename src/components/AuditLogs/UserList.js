@@ -112,6 +112,7 @@ const UserList = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
+  // 시작시 유저 리스트를 가져옴
   useEffect(() => {
     setLoading(true);
     const fetchUsers = async () => {
