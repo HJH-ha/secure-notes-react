@@ -271,16 +271,17 @@ const UserDetails = () => {
               </form>
             </div>
           </div>
+          {/* 관리자 액션 */}
           <div className="lg:w-[70%] sm:w-[90%] w-full  mx-auto shadow-lg shadow-gray-300 p-8 rounded-md">
             <h1 className="text-slate-800 text-2xl font-bold  pb-4">
-              Admin Actions
+              관리자 액션
               <hr />
             </h1>
 
             <div className="py-4 flex sm:flex-row flex-col sm:items-center items-start gap-4">
               <div className="flex items-center gap-2">
                 <label className="text-slate-600 text-lg font-semibold ">
-                  Role:{" "}
+                  권한:{" "}
                 </label>
                 <select
                   className=" px-8 py-1 rounded-md  border-2 uppercase border-slate-600  "
@@ -302,7 +303,7 @@ const UserDetails = () => {
                 className="bg-btnColor hover:text-slate-300 px-4 py-2 rounded-md text-white "
                 onClick={handleUpdateRole}
               >
-                {updateRoleLoader ? "Loading..." : "Update Role"}
+                {updateRoleLoader ? "로딩중..." : "권한 업데이트"}
               </button>
             </div>
 
